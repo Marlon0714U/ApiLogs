@@ -1,5 +1,6 @@
 
 using LogsApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LogsApi.Services
 {
@@ -19,6 +20,45 @@ namespace LogsApi.Services
             _context.Logs.Add(log);  // Agregar el log a la base de datos
             await _context.SaveChangesAsync();  // Guardar los cambios
         }
+
+        public async Task<IEnumerable<Log>> GetLogsAsync(
+            string? application, string? logType, DateTime? startDate, DateTime? endDate, int page, int pageSize)
+        {
+            var query = _context.Logs.AsQueryable();
+
+            // Filtro por aplicación
+            if (!string.IsNullOrEmpty(application))
+            {
+                query = query.Where(l => l.ApplicationName == application);
+            }
+
+            // Filtro por tipo de log
+            if (!string.IsNullOrEmpty(logType))
+            {
+                query = query.Where(l => l.LogType == logType);
+            }
+
+            // Filtro por rango de fechas
+            if (startDate.HasValue)
+            {
+                query = query.Where(l => l.Timestamp >= startDate.Value);
+            }
+
+            if (endDate.HasValue)
+            {
+                query = query.Where(l => l.Timestamp <= endDate.Value);
+            }
+
+            // Ordenar por fecha de creación
+            query = query.OrderBy(l => l.Timestamp);
+
+            // Paginación
+            return await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+        }
+
 
         // Obtener un log por su ID
         public async Task<Log?> GetLogByIdAsync(int id)  // Retorno opcional Log?

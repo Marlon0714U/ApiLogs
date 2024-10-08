@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace LogsApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("/[controller]")]
     public class LogsController : ControllerBase
     {
         private readonly ILogService _logService;
@@ -25,6 +25,23 @@ namespace LogsApi.Controllers
             await _logService.CreateLogAsync(log);
             return CreatedAtAction(nameof(GetLogById), new { id = log.Id }, log);
         }
+
+        // LogsApi/Controllers/LogsController.cs
+
+        [HttpGet]
+        public async Task<IActionResult> GetLogs(
+            [FromQuery] string? application,  // Filtro por nombre de aplicación
+            [FromQuery] string? logType,      // Filtro por tipo de log
+            [FromQuery] DateTime? startDate,  // Filtro por rango de fecha (inicio)
+            [FromQuery] DateTime? endDate,    // Filtro por rango de fecha (fin)
+            [FromQuery] int page = 1,         // Paginación: número de página
+            [FromQuery] int pageSize = 10     // Paginación: tamaño de página
+        )
+        {
+            var logs = await _logService.GetLogsAsync(application, logType, startDate, endDate, page, pageSize);
+            return Ok(logs);
+        }
+
 
         // GET /api/logs/{id} - Obtener un log por su ID
         [HttpGet("{id}")]

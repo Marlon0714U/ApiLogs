@@ -18,6 +18,13 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
+// Aplicar las migraciones automáticamente al iniciar la aplicación
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<LogDbContext>();
+    db.Database.Migrate(); // Aplica las migraciones pendientes
+}
+
 // Si estamos en desarrollo, usamos la página de errores
 if (app.Environment.IsDevelopment())
 {
