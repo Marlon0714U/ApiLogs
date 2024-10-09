@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pulgi\\Desktop\\Microservicios\\ApiLogs\\ApiLogs\\ApiLogs.csproj": {}
+    "C:\\Users\\anarq\\OneDrive\\Documentos\\Workspace\\Universidad\\MicroServicios\\ApiRest\\ApiLogs\\ApiLogs\\ApiLogs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pulgi\\Desktop\\Microservicios\\ApiLogs\\ApiLogs\\ApiLogs.csproj": {
+    "C:\\Users\\anarq\\OneDrive\\Documentos\\Workspace\\Universidad\\MicroServicios\\ApiRest\\ApiLogs\\ApiLogs\\ApiLogs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pulgi\\Desktop\\Microservicios\\ApiLogs\\ApiLogs\\ApiLogs.csproj",
+        "projectUniqueName": "C:\\Users\\anarq\\OneDrive\\Documentos\\Workspace\\Universidad\\MicroServicios\\ApiRest\\ApiLogs\\ApiLogs\\ApiLogs.csproj",
         "projectName": "ApiLogs",
-        "projectPath": "C:\\Users\\pulgi\\Desktop\\Microservicios\\ApiLogs\\ApiLogs\\ApiLogs.csproj",
-        "packagesPath": "C:\\Users\\pulgi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pulgi\\Desktop\\Microservicios\\ApiLogs\\ApiLogs\\obj\\",
+        "projectPath": "C:\\Users\\anarq\\OneDrive\\Documentos\\Workspace\\Universidad\\MicroServicios\\ApiRest\\ApiLogs\\ApiLogs\\ApiLogs.csproj",
+        "packagesPath": "C:\\Users\\anarq\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anarq\\OneDrive\\Documentos\\Workspace\\Universidad\\MicroServicios\\ApiRest\\ApiLogs\\ApiLogs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pulgi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\anarq\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -63,7 +63,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.8.1, )"
             }
           },
           "imports": [
