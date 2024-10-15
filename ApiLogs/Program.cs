@@ -20,6 +20,8 @@ builder.Services.AddControllers();
 // Agregar servicios a la colección de servicios
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHostedService<RabbitMQBackgroundService>();
+
 
 
 
